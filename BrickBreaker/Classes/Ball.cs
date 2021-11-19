@@ -55,11 +55,11 @@ namespace BrickBreaker
             {
                 if (p.x + p.width / 2 < x)
                 {
-                    xSpeed = 4;
+                    xSpeed += 2;
                 }
                 if (p.x + p.width / 2 > x)
                 {
-                    xSpeed = -4;
+                    xSpeed += -2;
                 }
                 ySpeed *= -1;
                 y = p.y - size;
