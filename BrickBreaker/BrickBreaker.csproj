@@ -162,16 +162,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\bubble.png" />
+    <Content Include="Resources\mainbackground.png" />
+    <Content Include="Resources\MarioStand.png" />
+    <Content Include="Resources\realbubble.png" />
+    <Content Include="Resources\rer.png" />
+    <Content Include="Resources\textbubble.png" />
     <None Include="Resources\Super Star.png" />
-    <None Include="Resources\Mega Mushroom.png" />
     <None Include="Resources\Mini Mushroom.png" />
-    <None Include="Resources\Poison Mushroom.png" />
-    <None Include="Resources\Super Leaf.png" />
-    <None Include="Resources\Spring Mushroom.png" />
-    <None Include="Resources\Coin.png" />
-    <None Include="Resources\Cloud Flower.png" />
     <None Include="Resources\Double Cherry.png" />
-    <None Include="Resources\1-UpMushroom.png" />
     <None Include="Resources\Fire flower.png" />
     <None Include="Resources\fire.png" />
     <None Include="Resources\Brick5real.png" />
@@ -182,7 +181,8 @@
     <Content Include="Resources\highscores.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Ice Flower.png" />
+    <Content Include="Resources\howtoplay.jpg" />
+    <Content Include="Resources\LebronJames.png" />
     <Content Include="Resources\level3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -192,7 +192,6 @@
     <Content Include="Resources\level1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Propeller Mushroom.png" />
     <None Include="Resources\Super Mushroom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
