@@ -23,7 +23,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, spacebarDown;
 
         // Game values
         int lives;
@@ -40,6 +40,7 @@ namespace BrickBreaker
         //image arrays
         public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
         public static Image[] brickImages = {BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -80,7 +81,7 @@ namespace BrickBreaker
             lives = 3;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = spacebarDown = false;
 
             // setup starting paddle values and create paddle object
             paddleWidth = 80;
@@ -152,6 +153,9 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
+                case Keys.Space:
+                    spacebarDown = true;
+                    break;
                 default:
                     break;
             }
@@ -167,6 +171,9 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
+                    break;
+                case Keys.Space:
+                    spacebarDown = false;
                     break;
                 default:
                     break;
@@ -184,7 +191,12 @@ namespace BrickBreaker
                 }
                 else if (starActive == true)
                 {
-
+                    starCounter++;
+                    ball.StarCollision(this);
+                    if (starCounter == 1200)
+                    {
+                        starActive = false;
+                    }
                 }
                 else if (cherryActive == true)
                 {
@@ -193,7 +205,7 @@ namespace BrickBreaker
                 else if (superMushActive == true)
                 {
                     superMushCounter++;
-                    if (superMushCounter == 20)
+                    if (superMushCounter == 1200)
                     {
                         paddle.width = 80;
                         superMushActive = false;
@@ -201,13 +213,19 @@ namespace BrickBreaker
                 }
                 else if (miniMushActive == true)
                 {
-
+                    miniMushCounter++;
+                    if (miniMushCounter == 1200)
+                    {
+                        paddle.width = 80;
+                        miniMushActive = false;
+                    }
                 }
                 else if (fireActive && starActive && cherryActive && superMushActive && miniMushActive == false)
                 {
                     powerActive = false;
                 }
             }
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -380,6 +398,13 @@ namespace BrickBreaker
 
             //draws score counter
             e.Graphics.DrawString($"Score: {score}", textFont, textBrush, 370, 510);
+
+            //if star power is active, draw rainbow effect at bottom
+            //Draw star rainbow effect
+            if (starActive == true)
+            {
+                e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
+            }
         }
 
         public void SpawnPowerUp(int x, int y)
@@ -401,7 +426,9 @@ namespace BrickBreaker
 
         public void SuperStar()
         {
-
+            starCounter = 0;
+            starActive = true;
+            powerActive = true;
         }
 
         public void DoubleCherry()
@@ -420,7 +447,11 @@ namespace BrickBreaker
 
         public void MiniMushroom()
         {
+            miniMushCounter = 0;
+            miniMushActive = true;
+            powerActive = true;
 
+            paddle.width = 50;
         }
 
         public void ActivatePowerUp(PowerUp p)
