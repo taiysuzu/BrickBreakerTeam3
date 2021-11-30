@@ -25,6 +25,9 @@ namespace BrickBreaker
         //player1 button control keys - DO NOT CHANGE
         Boolean leftArrowDown, rightArrowDown, spacebarDown;
 
+        //collision variable for 
+        bool didCollide = false;
+
         // Game values
         int lives;
         int score;
@@ -33,13 +36,14 @@ namespace BrickBreaker
         Paddle paddle;
         Ball ball;
 
-        // list of all blocks for current level
+        // lists
         public static List<Block> blocks = new List<Block>();
         public static List<PowerUp> powerUps = new List<PowerUp>();
+        public static List<Ball> balls = new List<Ball>();
 
         //image arrays
         public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
-        public static Image[] brickImages = {BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
@@ -90,17 +94,16 @@ namespace BrickBreaker
             paddleY = (this.Height - paddleHeight) - 60;
             paddleSpeed = 8;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
-            
+
             // setup starting ball values
             ballX = this.Width / 2 - 10;
             ballY = this.Height - paddle.height - 80;
-
-            // Creates a new ball
             xSpeed = 5;
             ySpeed = 5;
             ballSize = 20;
-            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+            // Creates a new ball
+            AddBall();
             #region Temporary code that loads levels.
 
             //TODO: load level screen
@@ -116,7 +119,7 @@ namespace BrickBreaker
             {
                 if (reader.NodeType == XmlNodeType.Text)
                 {
-                    
+
                     newX = Convert.ToInt32(reader.ReadString());
 
                     reader.ReadToNextSibling("y");
@@ -242,58 +245,65 @@ namespace BrickBreaker
                 p.Move();
             }
 
-            // Move ball
-            ball.Move();
-
-            // Check for collision with top and side walls
-            ball.WallCollision(this);
-
-            // Check for ball hitting bottom of screen
-            if (ball.BottomCollision(this))
+            foreach (Ball b in balls)
             {
-                lives--;
+                // Move ball
+                b.Move();
 
-                // Moves the ball back to origin
-                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                ball.y = (this.Height - paddle.height) - 85;
+                // Check for collision with top and side walls
+                b.WallCollision(this);
 
-                if (lives == 0)
+                // Check for ball hitting bottom of screen
+                if (b.BottomCollision(this))
                 {
-                    gameTimer.Enabled = false;
-                    OnEnd();
-                }
-            }
+                    lives--;
 
-            // Check for collision of ball with paddle, (incl. paddle movement)
-            ball.PaddleCollision(paddle);
+                    RemoveBall(b);
 
-            // Check if ball has collided with any blocks
-            foreach (Block b in blocks)
-            {
-
-                if (ball.BlockCollision(b))
-                {
-                    b.hp--;
-                    score++;
-
-                    b.colour = b.hp;
-
-                    if (b.type == 0)
-                    {
-                        SpawnPowerUp(b.x, b.y);
-                    }
-
-                    if (b.hp == 0)
-                    {
-                        blocks.Remove(b);
-                    }
-
-                    if (blocks.Count == 0)
+                    if (lives == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
+                }
 
+                // Check for collision of ball with paddle, (incl. paddle movement)
+                b.PaddleCollision(paddle);
+
+
+                // Check if ball has collided with any blocks
+                foreach (Block bl in blocks)
+                {
+                    if (b.BlockCollision(bl))
+                    {
+                        bl.hp--;
+                        score++;
+
+                        bl.colour = bl.hp;
+
+                        if (bl.type == 0)
+                        {
+                            SpawnPowerUp(b.x, b.y);
+                        }
+
+                        if (bl.hp == 0)
+                        {
+                            blocks.Remove(bl);
+                        }
+
+                        if (blocks.Count == 0)
+                        {
+                            gameTimer.Enabled = false;
+                            OnEnd();
+                        }
+                        didCollide = true;
+                        break;
+                    }
+                }
+
+                if (didCollide)
+                {
+                    didCollide = false;
                     break;
                 }
             }
@@ -391,7 +401,10 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            foreach (Ball b in balls)
+            {
+                e.Graphics.FillRectangle(ballBrush, b.x, b.y, b.size, b.size);
+            }
 
             //draws life counter
             e.Graphics.DrawString($"Lives left: {lives}", textFont, textBrush, 370, 490);
@@ -405,6 +418,27 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
             }
+        }
+
+        public void AddBall()
+        {
+            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+            balls.Add(ball);
+        }
+
+        public void RemoveBall(Ball b)
+        {
+            if (balls.Count == 1)
+            {
+                // Moves the ball back to origin
+                b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
+                b.y = (this.Height - paddle.height) - 85;
+            }
+            else if (balls.Count > 1)
+            {
+                balls.Remove(b);
+            }
+
         }
 
         public void SpawnPowerUp(int x, int y)
