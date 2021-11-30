@@ -268,7 +268,6 @@ namespace BrickBreaker
                 // Check for collision of ball with paddle, (incl. paddle movement)
                 b.PaddleCollision(paddle);
 
-
                 // Check if ball has collided with any blocks
                 foreach (Block bl in blocks)
                 {
@@ -281,7 +280,7 @@ namespace BrickBreaker
 
                         if (bl.type == 0)
                         {
-                            SpawnPowerUp(b.x, b.y);
+                            SpawnPowerUp(bl.x, bl.y);
                         }
 
                         if (bl.hp == 0)
@@ -348,30 +347,42 @@ namespace BrickBreaker
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            // Draws blocks
-            foreach (Block b in blocks)
+            foreach(Block b in blocks)
             {
-                if (b.colour == 1)
-                {
-                    e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
-                }
-                else if (b.colour == 2)
-                {
-                    e.Graphics.DrawImage(brickImages[1], b.x, b.y, b.width, b.height);
-                }
-                else if (b.colour == 3)
-                {
-                    e.Graphics.DrawImage(brickImages[2], b.x, b.y, b.width, b.height);
-                }
-                else if (b.colour == 4)
-                {
-                    e.Graphics.DrawImage(brickImages[3], b.x, b.y, b.width, b.height);
-                }
-                else if (b.colour == 5)
-                {
-                    e.Graphics.DrawImage(brickImages[4], b.x, b.y, b.width, b.height);
-                }
+                e.Graphics.DrawImage(brickImages[b.colour], b.x, b.y, b.width, b.height);
             }
+
+
+
+            // Draws blocks
+
+            //foreach (Block b in blocks)
+            //{
+            //    if (b.type == 0)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
+            //    }
+            //    else if (b.hp == 1)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
+            //    }
+            //    else if (b.hp == 2)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[1], b.x, b.y, b.width, b.height);
+            //    }
+            //    else if (b.hp == 3)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[2], b.x, b.y, b.width, b.height);
+            //    }
+            //    else if (b.hp == 4)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[3], b.x, b.y, b.width, b.height);
+            //    }
+            //    else if (b.hp == 5)
+            //    {
+            //        e.Graphics.DrawImage(brickImages[4], b.x, b.y, b.width, b.height);
+            //    }
+            //}
 
             //draws powerups
             foreach (PowerUp p in powerUps)
