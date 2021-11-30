@@ -18,14 +18,12 @@ namespace BrickBreaker
 {
     public partial class GameScreen : UserControl
     {
-        //todo - create ball list and change the way the ball works, add balls for powerup
-        //todo - create spawnBall method
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
         Boolean leftArrowDown, rightArrowDown, spacebarDown;
 
-        //collision variable for 
+        //collision variable for breaking out of the ball foreach loop
         bool didCollide = false;
 
         // Game values
