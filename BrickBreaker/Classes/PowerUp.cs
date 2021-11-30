@@ -28,6 +28,7 @@ namespace BrickBreaker
             y = y + speed;
         }
 
+
         public bool BottomCollision(UserControl UC)
         {
             Boolean didCollide = false;

@@ -171,10 +171,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\1-UpMushroom.png" />
     <Content Include="Resources\bubble.png" />
+    <None Include="Resources\Coin.png" />
     <Content Include="Resources\mainbackground.png" />
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\rainbow-effect2.png" />
+    <None Include="Resources\Poison Mushroom.png" />
     <Content Include="Resources\realbubble.png" />
     <Content Include="Resources\rer.png" />
     <Content Include="Resources\textbubble.png" />

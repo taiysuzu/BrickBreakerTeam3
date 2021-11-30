@@ -63,6 +63,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_UpMushroom {
+            get {
+                object obj = ResourceManager.GetObject("_1_UpMushroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Brick_1hp {
             get {
                 object obj = ResourceManager.GetObject("Brick_1hp", resourceCulture);
@@ -116,6 +126,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap bubble {
             get {
                 object obj = ResourceManager.GetObject("bubble", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -326,6 +346,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap Mini_Mushroom {
             get {
                 object obj = ResourceManager.GetObject("Mini_Mushroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poison_Mushroom {
+            get {
+                object obj = ResourceManager.GetObject("Poison_Mushroom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

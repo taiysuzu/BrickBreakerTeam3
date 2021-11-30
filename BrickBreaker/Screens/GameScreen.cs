@@ -38,7 +38,7 @@ namespace BrickBreaker
         public static List<PowerUp> powerUps = new List<PowerUp>();
 
         //image arrays
-        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
+        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1_UpMushroom, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom, BrickBreaker.Properties.Resources.Coin, BrickBreaker.Properties.Resources.Poison_Mushroom };
         public static Image[] brickImages = {BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
@@ -63,10 +63,10 @@ namespace BrickBreaker
         int ballX, ballY, xSpeed, ySpeed, ballSize;
 
         //powerup counters
-        int fireCounter, starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
+        int starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
 
         //powerup activated or not
-        bool powerActive, fireActive, starActive, cherryActive, superMushActive, miniMushActive = false;
+        bool powerActive, oneUpMushActive, starActive, cherryActive, superMushActive, miniMushActive, coinActive, poisonMushActive = false;
         #endregion
 
         public GameScreen()
@@ -185,10 +185,11 @@ namespace BrickBreaker
             //check if any powerups are active
             if (powerActive == true)
             {//check which powerups are active
-                if (fireActive == true)
+                if (oneUpMushActive == true)
                 {
-
-                }
+                    lives++;
+                    oneUpMushActive = false;
+                }            
                 else if (starActive == true)
                 {
                     starCounter++;
@@ -205,7 +206,7 @@ namespace BrickBreaker
                 else if (superMushActive == true)
                 {
                     superMushCounter++;
-                    if (superMushCounter == 1200)
+                    if (superMushCounter == 1000)
                     {
                         paddle.width = 80;
                         superMushActive = false;
@@ -220,7 +221,19 @@ namespace BrickBreaker
                         miniMushActive = false;
                     }
                 }
-                else if (fireActive && starActive && cherryActive && superMushActive && miniMushActive == false)
+
+                //else if (poisonMushActive == true)
+                //{
+                //    lives--;
+                //    poisonMushActive = false;
+                //}
+
+                //else if (coinActive == true)
+                //{
+                //    score++;
+                //    coinActive = false;
+                //}
+                else if (coinActive && starActive && cherryActive && superMushActive && miniMushActive && oneUpMushActive == false) // && poisonMushActive && coinActive
                 {
                     powerActive = false;
                 }
@@ -388,6 +401,14 @@ namespace BrickBreaker
                 {
                     e.Graphics.DrawImage(powerUpImages[p.type - 1], p.x, p.y, p.size, p.size);
                 }
+                //else if (p.type == 6)
+                //{
+                //    e.Graphics.DrawImage(powerUpImages[p.type - 1], p.x, p.y, p.size, p.size);
+                //}
+                //else if (p.type == 7)
+                //{
+                //    e.Graphics.DrawImage(powerUpImages[p.type - 1], p.x, p.y, p.size, p.size);
+                //}
             }
 
             // Draws ball
@@ -404,14 +425,14 @@ namespace BrickBreaker
             if (starActive == true)
             {
                 e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
-            }
+            }         
         }
 
         public void SpawnPowerUp(int x, int y)
         {
             int size = 40;
             int speed = 4;
-            int type = randGen.Next(1, 5);
+            int type = randGen.Next(1,6);
 
             //create powerup object and spawn it on powerup block's x and y
             PowerUp p = new PowerUp(x, y, size, speed, type);
@@ -419,11 +440,12 @@ namespace BrickBreaker
             powerUps.Add(p);
         }
 
-        public void FireFlower()
+        public void OneUpMushroom()
         {
-
+            oneUpMushActive = true;
+            powerActive = true;
         }
-
+        
         public void SuperStar()
         {
             starCounter = 0;
@@ -454,11 +476,23 @@ namespace BrickBreaker
             paddle.width = 50;
         }
 
+        //public void PoisonMushroom()
+        //{
+        //    poisonMushActive = true;
+        //    powerActive = true;
+        //}
+
+        //public void Coin()
+        //{
+        //    coinActive = true;
+        //    powerActive = true;
+        //}
+
         public void ActivatePowerUp(PowerUp p)
         {
             if (p.type == 1)
             {
-                FireFlower();
+                OneUpMushroom();
             }
             else if (p.type == 2)
             {
@@ -476,6 +510,14 @@ namespace BrickBreaker
             {
                 MiniMushroom();
             }
+            //else if (p.type == 6)
+            //{
+            //    Coin();
+            //}
+            //else if (p.type == 7)
+            //{
+            //    PoisonMushroom();
+            //}
 
             powerUps.Remove(p);
         }
