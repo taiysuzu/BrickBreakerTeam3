@@ -172,6 +172,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\bubble.png" />
+    <None Include="Resources\lebron james dead.jpg" />
     <Content Include="Resources\mainbackground.png" />
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\rainbow-effect2.png" />

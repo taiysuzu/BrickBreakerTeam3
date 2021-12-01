@@ -39,7 +39,7 @@ namespace BrickBreaker
 
         //image arrays
         public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
-        public static Image[] brickImages = {BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
@@ -69,6 +69,7 @@ namespace BrickBreaker
         bool powerActive, fireActive, starActive, cherryActive, superMushActive, miniMushActive = false;
         #endregion
 
+
         public GameScreen()
         {
             InitializeComponent();
@@ -90,7 +91,7 @@ namespace BrickBreaker
             paddleY = (this.Height - paddleHeight) - 60;
             paddleSpeed = 8;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
-            
+
             // setup starting ball values
             ballX = this.Width / 2 - 10;
             ballY = this.Height - paddle.height - 80;
@@ -116,7 +117,7 @@ namespace BrickBreaker
             {
                 if (reader.NodeType == XmlNodeType.Text)
                 {
-                    
+
                     newX = Convert.ToInt32(reader.ReadString());
 
                     reader.ReadToNextSibling("y");
@@ -171,9 +172,6 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
-                    break;
-                case Keys.Space:
-                    spacebarDown = false;
                     break;
                 default:
                     break;
@@ -243,7 +241,16 @@ namespace BrickBreaker
             }
 
             // Move ball
-            ball.Move();
+            if (spacebarDown == true)
+            {
+                ball.Move();
+            }
+
+            if (spacebarDown == false)
+            {
+                ball.x = paddle.x + paddleWidth / 2 - ballSize / 2;
+            }
+
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
@@ -252,10 +259,12 @@ namespace BrickBreaker
             if (ball.BottomCollision(this))
             {
                 lives--;
+                spacebarDown = false;
+                ResetBall();
 
                 // Moves the ball back to origin
-                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                ball.y = (this.Height - paddle.height) - 85;
+                //ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                //ball.y = (this.Height - paddle.height) - 85;
 
                 if (lives == 0)
                 {
@@ -334,6 +343,12 @@ namespace BrickBreaker
             form.Controls.Remove(this);
         }
 
+        public void ResetBall()
+        {
+                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                ball.y = (this.Height - paddle.height) - 85;
+        }
+
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
@@ -405,6 +420,8 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
             }
+
+
         }
 
         public void SpawnPowerUp(int x, int y)

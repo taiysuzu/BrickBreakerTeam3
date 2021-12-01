@@ -176,6 +176,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lebron_james_dead {
+            get {
+                object obj = ResourceManager.GetObject("lebron_james_dead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LebronJames {
             get {
                 object obj = ResourceManager.GetObject("LebronJames", resourceCulture);
