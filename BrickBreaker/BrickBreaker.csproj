@@ -178,8 +178,13 @@
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\rainbow-effect2.png" />
     <None Include="Resources\Poison Mushroom.png" />
+    <None Include="Resources\New Super Mario Bros. Wii - Mini Mushroom Sound Effect.wav" />
     <Content Include="Resources\realbubble.png" />
     <Content Include="Resources\rer.png" />
+    <None Include="Resources\Super Mario Bros. - Mushroom Sound Effect.wav" />
+    <None Include="Resources\Super Mario Bros. - 1-UP Mushroom Sound Effect.wav" />
+    <None Include="Resources\Super Mario Star Sound.wav" />
+    <None Include="Resources\Super Mario Land PowerUp Sound Effect [Free Ringtone Download].wav" />
     <Content Include="Resources\textbubble.png" />
     <None Include="Resources\Super Star.png" />
     <None Include="Resources\Mini Mushroom.png" />

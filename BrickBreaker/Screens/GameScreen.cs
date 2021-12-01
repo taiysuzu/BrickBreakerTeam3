@@ -51,6 +51,13 @@ namespace BrickBreaker
         SolidBrush blockBrush3 = new SolidBrush(Color.Green);
         SolidBrush blockBrush4 = new SolidBrush(Color.Blue);
 
+        // Sound effects
+        SoundPlayer miniMushSound = new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect);
+        SoundPlayer superMushSound = new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect);
+        SoundPlayer superStarSound = new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound);
+        SoundPlayer doubleCherrySound = new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect_);
+        SoundPlayer oneUpMushSound = new SoundPlayer(Properties.Resources.__1_UP_Mushroom_Sound_Effect);
+       
         //font for text
         Font textFont = new Font("Arial", 16);
 
