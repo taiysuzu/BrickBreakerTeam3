@@ -107,8 +107,10 @@ namespace BrickBreaker
             ySpeed = 5;
             ballSize = 20;
 
-            // Creates a new ball
-            AddBall();
+            // Creates starting ball
+            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+            balls.Add(ball);
+
             #region Temporary code that loads levels.
 
             //TODO: load level screen
@@ -204,7 +206,6 @@ namespace BrickBreaker
                 }
                 else if (cherryActive == true)
                 {
-
                 }
                 else if (superMushActive == true)
                 {
@@ -259,13 +260,14 @@ namespace BrickBreaker
                 {
                     lives--;
 
-                    RemoveBall(b);
-
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
+
+                    RemoveBall(b);
+                    break;
                 }
 
                 // Check for collision of ball with paddle, (incl. paddle movement)
@@ -432,8 +434,8 @@ namespace BrickBreaker
 
         public void AddBall()
         {
-            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-            balls.Add(ball);
+            balls.Add(balls[0]);
+            balls[1].xSpeed *= -1;
         }
 
         public void RemoveBall(Ball b)
