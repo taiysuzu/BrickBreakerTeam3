@@ -172,13 +172,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\bubble.png" />
-    <Content Include="Resources\mainbackground.png" />
+    <None Include="Resources\Super Mario Bros. - 1-UP Mushroom Sound Effect.wav" />
+    <None Include="Resources\Super Mario Bros. - Mushroom Sound Effect.wav" />
+    <None Include="Resources\Super Mario Land PowerUp Sound Effect [Free Ringtone Download].wav" />
+    <None Include="Resources\Super Mario Star Sound.wav" />
+    <None Include="Resources\Block69.png" />
+    <None Include="Resources\1Up_Mushroom.png" />
+    <None Include="Resources\dababyBackground.png" />
+    <None Include="Resources\LebronBackground.png" />
+    <None Include="Resources\MarioBackground.png" />
+    <None Include="Resources\MainBackground.png" />
     <Content Include="Resources\MarioStand.png" />
-    <None Include="Resources\rainbow-effect2.png" />
+    <None Include="Resources\New Super Mario Bros. Wii - Mini Mushroom Sound Effect.wav" />
+    <None Include="Resources\RealBacground.png" />
     <Content Include="Resources\realbubble.png" />
-    <Content Include="Resources\rer.png" />
-    <Content Include="Resources\textbubble.png" />
+    <None Include="Resources\rainbow-effect2.png" />
     <None Include="Resources\Super Star.png" />
     <None Include="Resources\Mini Mushroom.png" />
     <None Include="Resources\Double Cherry.png" />

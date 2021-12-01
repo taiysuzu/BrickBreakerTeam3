@@ -12,7 +12,7 @@ namespace BrickBreaker
     {
         public int x, y, size, speed, type;
 
-        //powerup types as follows: 1 - fire flower, 2 - super star, 3 - cherry, 4 - super mushroom, 5 - mini mushrooms
+        //powerup types as follows: 1 - 1up mushroom, 2 - super star, 3 - cherry, 4 - super mushroom, 5 - mini mushrooms
 
         public PowerUp(int _x, int _y, int _size, int _speed, int _type)
         {
