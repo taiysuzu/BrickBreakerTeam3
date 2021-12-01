@@ -40,7 +40,7 @@ namespace BrickBreaker
         public static List<Ball> balls = new List<Ball>();
 
         //image arrays
-        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
+        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1Up_Mushroom, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
         public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
@@ -52,6 +52,13 @@ namespace BrickBreaker
         SolidBrush blockBrush2 = new SolidBrush(Color.Yellow);
         SolidBrush blockBrush3 = new SolidBrush(Color.Green);
         SolidBrush blockBrush4 = new SolidBrush(Color.Blue);
+
+        // Sound effects
+        SoundPlayer miniMushSound = new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect);
+        SoundPlayer superMushSound = new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect);
+        SoundPlayer superStarSound = new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound);
+        SoundPlayer doubleCherrySound = new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect);
+        SoundPlayer oneUpMushSound = new SoundPlayer(Properties.Resources._1_UP_Mushroom_Sound_Effect);
 
         //font for text
         Font textFont = new Font("Arial", 16);
@@ -65,10 +72,10 @@ namespace BrickBreaker
         int ballX, ballY, xSpeed, ySpeed, ballSize;
 
         //powerup counters
-        int fireCounter, starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
+        int starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
 
         //powerup activated or not
-        bool powerActive, fireActive, starActive, cherryActive, superMushActive, miniMushActive = false;
+        bool powerActive, starActive, cherryActive, superMushActive, miniMushActive = false;
         #endregion
 
         public GameScreen()
@@ -186,11 +193,7 @@ namespace BrickBreaker
             //check if any powerups are active
             if (powerActive == true)
             {//check which powerups are active
-                if (fireActive == true)
-                {
-
-                }
-                else if (starActive == true)
+                if (starActive == true)
                 {
                     starCounter++;
                     ball.StarCollision(this);
@@ -221,7 +224,7 @@ namespace BrickBreaker
                         miniMushActive = false;
                     }
                 }
-                else if (fireActive && starActive && cherryActive && superMushActive && miniMushActive == false)
+                else if (starActive && cherryActive && superMushActive && miniMushActive == false)
                 {
                     powerActive = false;
                 }
@@ -459,9 +462,9 @@ namespace BrickBreaker
             powerUps.Add(p);
         }
 
-        public void FireFlower()
+        public void _1UpMushroom()
         {
-
+            lives = lives + 1;
         }
 
         public void SuperStar()
@@ -498,7 +501,7 @@ namespace BrickBreaker
         {
             if (p.type == 1)
             {
-                FireFlower();
+                _1UpMushroom();
             }
             else if (p.type == 2)
             {
