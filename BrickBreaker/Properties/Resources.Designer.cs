@@ -63,6 +63,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1Up_Mushroom {
+            get {
+                object obj = ResourceManager.GetObject("_1Up_Mushroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Brick_1hp {
             get {
                 object obj = ResourceManager.GetObject("Brick_1hp", resourceCulture);
@@ -123,6 +133,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dababyBackground {
+            get {
+                object obj = ResourceManager.GetObject("dababyBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Double_Cherry {
             get {
                 object obj = ResourceManager.GetObject("Double_Cherry", resourceCulture);
@@ -169,6 +189,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap howtoplay {
             get {
                 object obj = ResourceManager.GetObject("howtoplay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LebronBackground {
+            get {
+                object obj = ResourceManager.GetObject("LebronBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +343,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MarioBackground {
+            get {
+                object obj = ResourceManager.GetObject("MarioBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MarioStand {
             get {
                 object obj = ResourceManager.GetObject("MarioStand", resourceCulture);
@@ -327,6 +367,15 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("Mini_Mushroom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream New_Super_Mario_Bros__Wii___Mini_Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("New_Super_Mario_Bros__Wii___Mini_Mushroom_Sound_Effect", resourceCulture);
             }
         }
         
@@ -347,6 +396,42 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("realbubble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Super_Mario_Bros____1_UP_Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("Super_Mario_Bros____1_UP_Mushroom_Sound_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Super_Mario_Bros____Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("Super_Mario_Bros____Mushroom_Sound_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Super_Mario_Land_PowerUp_Sound_Effect__Free_Ringtone_Download_ {
+            get {
+                return ResourceManager.GetStream("Super_Mario_Land_PowerUp_Sound_Effect__Free_Ringtone_Download_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Super_Mario_Star_Sound {
+            get {
+                return ResourceManager.GetStream("Super_Mario_Star_Sound", resourceCulture);
             }
         }
         
