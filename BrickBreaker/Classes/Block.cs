@@ -18,7 +18,10 @@ namespace BrickBreaker
         public int colour;
         public int type;
 
-        //block types as follows: 0 - powerup block, 1-5 - 1-5 hp, 6 - pow block
+        Image image;
+
+        //block types as follows: 0 - powerup block, 1-5 - 1-5 hp
+        //block colours/images are the same order
 
         public static Random rand = new Random();
 

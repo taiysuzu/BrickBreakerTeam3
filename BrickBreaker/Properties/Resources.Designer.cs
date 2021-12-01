@@ -61,6 +61,43 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _1_UP_Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("_1_UP_Mushroom_Sound_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1Up_Mushroom {
+            get {
+                object obj = ResourceManager.GetObject("_1Up_Mushroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _Mini_Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("_Mini_Mushroom_Sound_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _Mushroom_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("_Mushroom_Sound_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Brick_1hp {
@@ -113,9 +150,19 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bubble {
+        internal static System.Drawing.Bitmap Brick_Question {
             get {
-                object obj = ResourceManager.GetObject("bubble", resourceCulture);
+                object obj = ResourceManager.GetObject("Brick_Question", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dababyBackground {
+            get {
+                object obj = ResourceManager.GetObject("dababyBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -169,6 +216,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap howtoplay {
             get {
                 object obj = ResourceManager.GetObject("howtoplay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LebronBackground {
+            get {
+                object obj = ResourceManager.GetObject("LebronBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +370,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MarioBackground {
+            get {
+                object obj = ResourceManager.GetObject("MarioBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MarioStand {
             get {
                 object obj = ResourceManager.GetObject("MarioStand", resourceCulture);
@@ -327,6 +394,15 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("Mini_Mushroom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream PowerUp_Sound_Effect {
+            get {
+                return ResourceManager.GetStream("PowerUp_Sound_Effect", resourceCulture);
             }
         }
         
@@ -351,12 +427,11 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.Drawing.Bitmap rer {
+        internal static System.IO.UnmanagedMemoryStream Super_Mario_Star_Sound {
             get {
-                object obj = ResourceManager.GetObject("rer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetStream("Super_Mario_Star_Sound", resourceCulture);
             }
         }
         
@@ -376,16 +451,6 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap Super_Star {
             get {
                 object obj = ResourceManager.GetObject("Super_Star", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap textbubble {
-            get {
-                object obj = ResourceManager.GetObject("textbubble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
