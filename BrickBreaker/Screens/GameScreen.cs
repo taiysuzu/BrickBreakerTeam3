@@ -73,6 +73,7 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
+
         }
 
         public void OnStart()
@@ -479,5 +480,6 @@ namespace BrickBreaker
 
             powerUps.Remove(p);
         }
+
     }
 }
