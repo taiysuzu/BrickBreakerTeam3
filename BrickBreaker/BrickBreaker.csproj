@@ -179,10 +179,11 @@
     <None Include="Resources\1Up_Mushroom.png" />
     <None Include="Resources\dababyBackground.png" />
     <None Include="Resources\LebronBackground.png" />
-    <Content Include="Resources\mainbackground.png" />
     <None Include="Resources\MarioBackground.png" />
+    <None Include="Resources\MainBackground.png" />
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\New Super Mario Bros. Wii - Mini Mushroom Sound Effect.wav" />
+    <None Include="Resources\RealBacground.png" />
     <Content Include="Resources\realbubble.png" />
     <None Include="Resources\rainbow-effect2.png" />
     <None Include="Resources\Super Star.png" />
