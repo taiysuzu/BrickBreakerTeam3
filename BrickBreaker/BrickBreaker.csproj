@@ -172,7 +172,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\bubble.png" />
+    <Content Include="Resources\dababyBackground.png" />
+    <Content Include="Resources\LebronBackground.png" />
     <Content Include="Resources\mainbackground.png" />
+    <Content Include="Resources\MarioBackground.png" />
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\rainbow-effect2.png" />
     <Content Include="Resources\realbubble.png" />
