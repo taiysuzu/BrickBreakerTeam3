@@ -108,7 +108,8 @@ namespace BrickBreaker
             ballSize = 20;
 
             // Creates a new ball
-            AddBall();
+            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+            balls.Add(ball);
             #region Temporary code that loads levels.
 
             //TODO: load level screen
@@ -204,7 +205,17 @@ namespace BrickBreaker
                 }
                 else if (cherryActive == true)
                 {
-
+                    cherryCounter++;
+                    if (balls.Count == 1 || cherryCounter == 1000)
+                    {
+                        cherryActive = false;
+                        if (balls.Count > 1)
+                        {
+                            RemoveBall(balls [1]);
+                        }
+                    }
+                
+                    
                 }
                 else if (superMushActive == true)
                 {
@@ -258,14 +269,14 @@ namespace BrickBreaker
                 if (b.BottomCollision(this))
                 {
                     lives--;
-
-                    RemoveBall(b);
-
+                
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
+                    RemoveBall(b);
+                    break;
                 }
 
                 // Check for collision of ball with paddle, (incl. paddle movement)
@@ -432,8 +443,8 @@ namespace BrickBreaker
 
         public void AddBall()
         {
-            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-            balls.Add(ball);
+            balls.Add(balls[0]);
+            balls[1].xSpeed *= -1;
         }
 
         public void RemoveBall(Ball b)
@@ -446,7 +457,7 @@ namespace BrickBreaker
             }
             else if (balls.Count > 1)
             {
-                balls.Remove(b);
+                balls.Remove(b);               
             }
         }
 
@@ -454,7 +465,7 @@ namespace BrickBreaker
         {
             int size = 40;
             int speed = 4;
-            int type = randGen.Next(1, 5);
+            int type = randGen.Next(3,4);
 
             //create powerup object and spawn it on powerup block's x and y
             PowerUp p = new PowerUp(x, y, size, speed, type);
@@ -476,7 +487,10 @@ namespace BrickBreaker
 
         public void DoubleCherry()
         {
-
+            AddBall();
+            cherryCounter = 0;
+            cherryActive = true;
+            powerActive = true;
         }
 
         public void SuperMushroom()
