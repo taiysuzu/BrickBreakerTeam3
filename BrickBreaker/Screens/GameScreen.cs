@@ -41,7 +41,7 @@ namespace BrickBreaker
 
         //image arrays
         public static Image[] powerUpImages = { BrickBreaker.Properties.Resources.Fire_Flower, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
-        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
@@ -276,7 +276,10 @@ namespace BrickBreaker
                         bl.hp--;
                         score++;
 
-                        bl.colour = bl.hp;
+                        if (bl.colour != 0)
+                        {
+                            bl.colour = bl.hp;
+                        }
 
                         if (bl.type == 0)
                         {
@@ -313,11 +316,8 @@ namespace BrickBreaker
                     powerUps.Remove(p);
                     break;
                 }
-            }
 
-            //check powerup collision with paddle
-            foreach (PowerUp p in powerUps)
-            {
+                //check powerup collision with paddle
                 if (p.PaddleCollision(paddle))
                 {
                     ActivatePowerUp(p);
@@ -351,8 +351,6 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(brickImages[b.colour], b.x, b.y, b.width, b.height);
             }
-
-
 
             // Draws blocks
 
@@ -447,7 +445,6 @@ namespace BrickBreaker
             {
                 balls.Remove(b);
             }
-
         }
 
         public void SpawnPowerUp(int x, int y)
