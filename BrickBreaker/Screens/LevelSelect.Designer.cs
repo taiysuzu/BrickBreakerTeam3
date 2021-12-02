@@ -31,6 +31,9 @@ namespace BrickBreaker
         {
             this.leftButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
+            this.beginButton = new System.Windows.Forms.Button();
+            this.difficultyLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // leftButton
@@ -49,6 +52,8 @@ namespace BrickBreaker
             this.leftButton.Text = "<";
             this.leftButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.leftButton.UseVisualStyleBackColor = false;
+            this.leftButton.Visible = false;
+            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
             this.leftButton.MouseEnter += new System.EventHandler(this.leftButton_MouseEnter);
             this.leftButton.MouseLeave += new System.EventHandler(this.leftButton_MouseLeave);
             // 
@@ -68,8 +73,53 @@ namespace BrickBreaker
             this.rightButton.Text = ">";
             this.rightButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rightButton.UseVisualStyleBackColor = false;
+            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
             this.rightButton.MouseEnter += new System.EventHandler(this.rightButton_MouseEnter);
             this.rightButton.MouseLeave += new System.EventHandler(this.rightButton_MouseLeave);
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.White;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(3, 3);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(104, 42);
+            this.backButton.TabIndex = 7;
+            this.backButton.Text = "<- Back";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // beginButton
+            // 
+            this.beginButton.BackColor = System.Drawing.Color.White;
+            this.beginButton.FlatAppearance.BorderSize = 0;
+            this.beginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.beginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.beginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.beginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.beginButton.Location = new System.Drawing.Point(322, 467);
+            this.beginButton.Name = "beginButton";
+            this.beginButton.Size = new System.Drawing.Size(204, 49);
+            this.beginButton.TabIndex = 6;
+            this.beginButton.Text = "Begin!";
+            this.beginButton.UseVisualStyleBackColor = false;
+            this.beginButton.Click += new System.EventHandler(this.beginButton_Click);
+            // 
+            // difficultyLabel
+            // 
+            this.difficultyLabel.BackColor = System.Drawing.Color.White;
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLabel.ForeColor = System.Drawing.Color.Lime;
+            this.difficultyLabel.Location = new System.Drawing.Point(232, 107);
+            this.difficultyLabel.Name = "difficultyLabel";
+            this.difficultyLabel.Size = new System.Drawing.Size(386, 37);
+            this.difficultyLabel.TabIndex = 5;
+            this.difficultyLabel.Text = "Difficulty: Easy";
+            this.difficultyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LevelSelect
             // 
@@ -77,6 +127,9 @@ namespace BrickBreaker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.MarioBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.beginButton);
+            this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
             this.DoubleBuffered = true;
@@ -90,5 +143,8 @@ namespace BrickBreaker
 
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button beginButton;
+        private System.Windows.Forms.Label difficultyLabel;
     }
 }

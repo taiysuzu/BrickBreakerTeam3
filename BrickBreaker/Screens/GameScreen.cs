@@ -110,16 +110,15 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             balls.Add(ball);
 
-            #region Temporary code that loads levels.
+            #region Loads levels
 
-            //TODO: select level
-            //clears screen and loads level 1
+            //clears screen, checks which level to load and loads it
 
             blocks.Clear();
 
             int newX, newY, newHp, newColour, newType;
 
-            XmlReader reader = XmlReader.Create("Resources/level1.xml");
+            XmlReader reader = XmlReader.Create($"Resources/level{LevelSelect.counter}.xml");
 
             while (reader.Read())
             {

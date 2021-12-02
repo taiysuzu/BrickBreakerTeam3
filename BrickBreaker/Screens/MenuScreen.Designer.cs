@@ -31,6 +31,7 @@
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.instructionsButton = new System.Windows.Forms.Button();
+            this.highscoresButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // playButton
@@ -43,7 +44,7 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.Color.White;
-            this.playButton.Location = new System.Drawing.Point(325, 143);
+            this.playButton.Location = new System.Drawing.Point(325, 60);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(233, 77);
             this.playButton.TabIndex = 0;
@@ -83,7 +84,7 @@
             this.instructionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.instructionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructionsButton.ForeColor = System.Drawing.Color.White;
-            this.instructionsButton.Location = new System.Drawing.Point(325, 226);
+            this.instructionsButton.Location = new System.Drawing.Point(325, 143);
             this.instructionsButton.Name = "instructionsButton";
             this.instructionsButton.Size = new System.Drawing.Size(233, 77);
             this.instructionsButton.TabIndex = 2;
@@ -93,6 +94,26 @@
             this.instructionsButton.MouseEnter += new System.EventHandler(this.instructionsButton_MouseEnter);
             this.instructionsButton.MouseLeave += new System.EventHandler(this.instructionsButton_MouseLeave);
             // 
+            // highscoresButton
+            // 
+            this.highscoresButton.BackColor = System.Drawing.Color.Transparent;
+            this.highscoresButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.highscoresButton.FlatAppearance.BorderSize = 0;
+            this.highscoresButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.highscoresButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.highscoresButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.highscoresButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highscoresButton.ForeColor = System.Drawing.Color.White;
+            this.highscoresButton.Location = new System.Drawing.Point(325, 226);
+            this.highscoresButton.Name = "highscoresButton";
+            this.highscoresButton.Size = new System.Drawing.Size(233, 77);
+            this.highscoresButton.TabIndex = 4;
+            this.highscoresButton.Text = "Highscores";
+            this.highscoresButton.UseVisualStyleBackColor = false;
+            this.highscoresButton.Click += new System.EventHandler(this.highscoresButton_Click);
+            this.highscoresButton.MouseEnter += new System.EventHandler(this.highscoresButton_MouseEnter);
+            this.highscoresButton.MouseLeave += new System.EventHandler(this.highscoresButton_MouseLeave);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -100,6 +121,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.mainbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.highscoresButton);
             this.Controls.Add(this.instructionsButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
@@ -115,5 +137,6 @@
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button instructionsButton;
+        private System.Windows.Forms.Button highscoresButton;
     }
 }
