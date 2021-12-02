@@ -195,7 +195,7 @@ namespace BrickBreaker
                 {
                     starCounter++;
                     ball.StarCollision(this);
-                    if (starCounter == 1200)
+                    if (starCounter == 2000)
                     {
                         starActive = false;
                     }
@@ -522,22 +522,27 @@ namespace BrickBreaker
         {
             if (p.type == 1)
             {
+                powerUpSounds[0].Play();
                 _1UpMushroom();
             }
             else if (p.type == 2)
             {
+                powerUpSounds[1].Play();
                 SuperStar();
             }
             else if (p.type == 3)
             {
+                powerUpSounds[2].Play();
                 DoubleCherry();
             }
             else if (p.type == 4)
             {
+                powerUpSounds[3].Play();
                 SuperMushroom();
             }
             else if (p.type == 5)
             {
+                powerUpSounds[4].Play();
                 MiniMushroom();
             }
 
