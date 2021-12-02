@@ -86,6 +86,8 @@ namespace BrickBreaker
 
         public void OnStart()
         {
+            balls.Clear();
+
             //set life counter
             lives = 3;
 
@@ -198,7 +200,7 @@ namespace BrickBreaker
                 {
                     starCounter++;
                     ball.StarCollision(this);
-                    if (starCounter == 1200)
+                    if (starCounter == 2000)
                     {
                         starActive = false;
                     }
@@ -443,8 +445,8 @@ namespace BrickBreaker
 
         public void AddBall()
         {
+            ball = new Ball(balls[0].x, balls[0].y, balls[0].xSpeed * -1, balls[0].ySpeed, ballSize);
             balls.Add(balls[0]);
-            balls[1].xSpeed *= -1;
         }
 
         public void RemoveBall(Ball b)
@@ -454,6 +456,7 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
                 b.y = (this.Height - paddle.height) - 85;
+               
             }
             else if (balls.Count > 1)
             {
@@ -474,19 +477,19 @@ namespace BrickBreaker
         }
 
         public void _1UpMushroom()
-        {
+        {          
             lives = lives + 1;
         }
 
         public void SuperStar()
-        {
+        {         
             starCounter = 0;
             starActive = true;
             powerActive = true;
         }
 
         public void DoubleCherry()
-        {
+        {          
             AddBall();
             cherryCounter = 0;
             cherryActive = true;
@@ -494,8 +497,8 @@ namespace BrickBreaker
         }
 
         public void SuperMushroom()
-        {
-            superMushCounter = 0;
+        {           
+           superMushCounter = 0;
             superMushActive = true;
             powerActive = true;
 
@@ -503,7 +506,7 @@ namespace BrickBreaker
         }
 
         public void MiniMushroom()
-        {
+        {         
             miniMushCounter = 0;
             miniMushActive = true;
             powerActive = true;
@@ -515,22 +518,27 @@ namespace BrickBreaker
         {
             if (p.type == 1)
             {
+                oneUpMushSound.Play();
                 _1UpMushroom();
             }
             else if (p.type == 2)
             {
+                superStarSound.Play();
                 SuperStar();
             }
             else if (p.type == 3)
             {
+                doubleCherrySound.Play();
                 DoubleCherry();
             }
             else if (p.type == 4)
             {
+                superMushSound.Play();
                 SuperMushroom();
             }
             else if (p.type == 5)
             {
+                miniMushSound.Play();
                 MiniMushroom();
             }
 
