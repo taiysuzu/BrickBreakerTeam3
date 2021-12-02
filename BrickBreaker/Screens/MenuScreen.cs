@@ -26,7 +26,7 @@ namespace BrickBreaker
         {
             // Goes to the level select screen
             
-            LevelSelect ls = new LevelSelect();
+            GameScreen ls = new GameScreen();
             Form form = this.FindForm();
 
             form.Controls.Add(ls);

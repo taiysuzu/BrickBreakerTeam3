@@ -434,8 +434,8 @@ namespace BrickBreaker
 
         public void AddBall()
         {
-            balls.Add(balls[0]);
-            balls[1].xSpeed *= -1;
+            ball = new Ball(balls[0].x, balls[0].y, balls[0].xSpeed * -1, balls[0].ySpeed, ballSize);
+            balls.Add(ball);
         }
 
         public void RemoveBall(Ball b)
@@ -445,6 +445,8 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
                 b.y = (this.Height - paddle.height) - 85;
+                b.xSpeed = 5;
+                b.ySpeed = 5;
             }
             else if (balls.Count > 1)
             {
