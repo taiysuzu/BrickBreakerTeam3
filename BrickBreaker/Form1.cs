@@ -31,19 +31,38 @@ namespace BrickBreaker
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            XmlWriter writer = XmlWriter.Create("resources/highscores", null);
+            XmlWriter writer = XmlWriter.Create("resources/highscores.xml", null);
 
-            writer.WriteStartElement("highscores");
+            writer.WriteStartElement("Highscores");
 
             foreach(Scores s in highscoreList)
             {
-                writer.WriteStartElement("Highscore");
-
+                writer.WriteStartElement("highscore");
+                writer.WriteElementString("score", s.highscore);
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();
             writer.Close();
 
+        }
+        public void LoadHS()
+        {
+            string highscore;
+
+            XmlReader reader = XmlReader.Create("resources/highscores.xml");
+
+            while(reader.Read())
+            {
+                if(reader.NodeType == XmlNodeType.Text)
+                {
+                    highscore = reader.ReadString();
+
+                    Scores newHScore = new Scores(highscore);
+                    highscoreList.Add(newHScore);
+                }
+            }
+
+            reader.Close();
         }
     }
 }
