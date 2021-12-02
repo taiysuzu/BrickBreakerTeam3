@@ -234,12 +234,6 @@ namespace BrickBreaker
                 paddle.Move("right");
             }
 
-            //move powerups
-            foreach (PowerUp p in powerUps)
-            {
-                p.Move();
-            }
-
             foreach (Ball b in balls)
             {
                 // Move ball
@@ -260,10 +254,7 @@ namespace BrickBreaker
                 if (b.BottomCollision(this))
                 {
                     lives--;
-
                     
-                    RemoveBall(b);
-
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false;
@@ -317,6 +308,12 @@ namespace BrickBreaker
                 }
             }
 
+            //move powerups
+            foreach (PowerUp p in powerUps)
+            {
+                p.Move();
+            }
+
             //check powerup collision with bottom
             foreach (PowerUp p in powerUps)
             {
@@ -352,15 +349,6 @@ namespace BrickBreaker
             Form1.highscoreList.Add(new Scores(score+""));
         }
 
-        public void ResetBall()
-        {
-            balls[0].x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-            balls[0].y = (this.Height - paddle.height) - 85;
-            balls[0].xSpeed = 5;
-            balls[0].ySpeed = 5;
-        }
-
-
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
@@ -371,36 +359,6 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(brickImages[b.colour], b.x, b.y, b.width, b.height);
             }
-
-            // Draws blocks
-
-            //foreach (Block b in blocks)
-            //{
-            //    if (b.type == 0)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 1)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 2)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[1], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 3)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[2], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 4)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[3], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 5)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[4], b.x, b.y, b.width, b.height);
-            //    }
-            //}
 
             //draws powerups
             foreach (PowerUp p in powerUps)
@@ -471,6 +429,15 @@ namespace BrickBreaker
             }
         }
 
+        public void ResetBall()
+        {
+            balls[0].x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+            balls[0].y = (this.Height - paddle.height) - 85;
+            balls[0].xSpeed = 5;
+            balls[0].ySpeed = 5;
+        }
+
+        #region PowerUps
         public void SpawnPowerUp(int x, int y)
         {
             int size = 40;
@@ -482,7 +449,7 @@ namespace BrickBreaker
 
             powerUps.Add(p);
         }
-
+        
         public void _1UpMushroom()
         {
             lives = lives + 1;
@@ -548,6 +515,6 @@ namespace BrickBreaker
 
             powerUps.Remove(p);
         }
-
+        #endregion
     }
 }
