@@ -40,25 +40,22 @@ namespace BrickBreaker
         public static List<Ball> balls = new List<Ball>();
 
         //image arrays
-        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1Up_Mushroom, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
-        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1Up_Mushroom, BrickBreaker.Properties.Resources.Super_Star, 
+            BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
+        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, 
+            BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, 
+            BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush textBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
-        SolidBrush blockBrush2 = new SolidBrush(Color.Yellow);
-        SolidBrush blockBrush3 = new SolidBrush(Color.Green);
-        SolidBrush blockBrush4 = new SolidBrush(Color.Blue);
 
-        // Sound effects
-        SoundPlayer miniMushSound = new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect);
-        SoundPlayer superMushSound = new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect);
-        SoundPlayer superStarSound = new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound);
-        SoundPlayer doubleCherrySound = new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect);
-        SoundPlayer oneUpMushSound = new SoundPlayer(Properties.Resources._1_UP_Mushroom_Sound_Effect);
+        // Sound effect arrays
+        public static SoundPlayer[] powerUpSounds = { new SoundPlayer(Properties.Resources._1_UP_Mushroom_Sound_Effect), 
+            new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound), new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect), 
+            new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect), new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect) };
 
         //font for text
         Font textFont = new Font("Arial", 16);
@@ -82,7 +79,6 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
-
         }
 
         public void OnStart()
@@ -116,7 +112,7 @@ namespace BrickBreaker
 
             #region Temporary code that loads levels.
 
-            //TODO: load level screen
+            //TODO: select level
             //clears screen and loads level 1
 
             blocks.Clear();
