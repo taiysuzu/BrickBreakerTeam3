@@ -150,6 +150,21 @@ namespace BrickBreaker
             gameTimer.Enabled = true;
         }
 
+        public void OnEnd()
+        {
+            // Goes to the game over screen
+            Form form = this.FindForm();
+
+            GameOverScreen gos = new GameOverScreen();
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
+
+            form.Controls.Add(gos);
+            form.Controls.Remove(this);
+
+            Form1.highscoreList.Add(new Scores(score + ""));
+        }
+
+        #region Keys
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //player 1 button presses
@@ -184,6 +199,7 @@ namespace BrickBreaker
                     break;
             }
         }
+        #endregion
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -196,6 +212,7 @@ namespace BrickBreaker
                     ball.StarCollision(this);
                     if (starCounter == 2000)
                     {
+                        powerUpSounds[2].Stop();
                         starActive = false;
                     }
                 }
@@ -334,27 +351,13 @@ namespace BrickBreaker
             Refresh();
         }
 
-        public void OnEnd()
-        {
-            // Goes to the game over screen
-            Form form = this.FindForm();
-
-            GameOverScreen gos = new GameOverScreen();
-            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
-
-            form.Controls.Add(gos);
-            form.Controls.Remove(this);
-
-            Form1.highscoreList.Add(new Scores(score+""));
-        }
-
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            foreach(Block b in blocks)
+            foreach (Block b in blocks)
             {
                 e.Graphics.DrawImage(brickImages[b.colour], b.x, b.y, b.width, b.height);
             }
@@ -400,7 +403,7 @@ namespace BrickBreaker
             //Draw star rainbow effect
             if (starActive == true)
             {
-                e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
+                e.Graphics.DrawImage(rainbow, 0, 535, 1068, 20);
             }
         }
 

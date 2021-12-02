@@ -189,7 +189,6 @@
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\New Super Mario Bros. Wii - Mini Mushroom Sound Effect.wav" />
     <None Include="Resources\RealBacground.png" />
-    <Content Include="Resources\realbubble.png" />
     <None Include="Resources\rainbow-effect2.png" />
     <None Include="Resources\Super Star.png" />
     <None Include="Resources\Mini Mushroom.png" />
