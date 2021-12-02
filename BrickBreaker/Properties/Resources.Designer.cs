@@ -179,9 +179,10 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;Score&gt;
+        ///&lt;Highscores&gt;
         ///  
-        ///&lt;/Score&gt;
+        ///&lt;/Highscores&gt;
+        ///
         ///.
         /// </summary>
         internal static string highscores {
@@ -206,16 +207,6 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap LebronBackground {
             get {
                 object obj = ResourceManager.GetObject("LebronBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap LebronJames {
-            get {
-                object obj = ResourceManager.GetObject("LebronJames", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,16 +344,6 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap MarioBackground {
             get {
                 object obj = ResourceManager.GetObject("MarioBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MarioStand {
-            get {
-                object obj = ResourceManager.GetObject("MarioStand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
