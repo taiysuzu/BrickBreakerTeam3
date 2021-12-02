@@ -108,6 +108,8 @@ namespace BrickBreaker
             ySpeed = 5;
             ballSize = 20;
 
+            //makes sure the balls list is empty from the last game
+            balls.Clear();
             // Creates starting ball
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             balls.Add(ball);
@@ -359,8 +361,10 @@ namespace BrickBreaker
 
         public void ResetBall()
         {
-            ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-            ball.y = (this.Height - paddle.height) - 85;
+            balls[0].x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+            balls[0].y = (this.Height - paddle.height) - 85;
+            balls[0].xSpeed = 5;
+            balls[0].ySpeed = 5;
         }
 
 
@@ -460,13 +464,14 @@ namespace BrickBreaker
         {
             if (balls.Count == 1)
             {
-                // Moves the ball back to origin
-                b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
-                b.y = (this.Height - paddle.height) - 85;
-                b.xSpeed = 5;
-                b.ySpeed = 5;
+                ResetBall();
+                //// Moves the ball back to origin
+                //b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
+                //b.y = (this.Height - paddle.height) - 85;
+                //b.xSpeed = 5;
+                //b.ySpeed = 5;
             }
-            else if (balls.Count > 1)
+            else
             {
                 balls.Remove(b);
             }
