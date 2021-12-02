@@ -34,5 +34,15 @@ namespace BrickBreaker
             ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
         }
 
+        private void highscoreButton_Click(object sender, EventArgs e)
+        {
+            Screens.HighscoreScreen hs = new Screens.HighscoreScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(hs);
+            form.Controls.Remove(this);
+
+            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
+        }
     }
 }
