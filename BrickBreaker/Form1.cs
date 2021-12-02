@@ -18,6 +18,7 @@ namespace BrickBreaker
         public Form1()
         {
             InitializeComponent();
+            LoadHS();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,6 +28,8 @@ namespace BrickBreaker
             this.Controls.Add(ms);
 
             ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);
+
+            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,8 +64,8 @@ namespace BrickBreaker
                     highscoreList.Add(newHScore);
                 }
             }
-
             reader.Close();
+
         }
     }
 }

@@ -148,6 +148,7 @@ namespace BrickBreaker
             this.label118 = new System.Windows.Forms.Label();
             this.label120 = new System.Windows.Forms.Label();
             this.label109 = new System.Windows.Forms.Label();
+            this.highscoreButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // menuButton
@@ -158,7 +159,7 @@ namespace BrickBreaker
             this.menuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menuButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(223, 432);
+            this.menuButton.Location = new System.Drawing.Point(99, 432);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(194, 77);
             this.menuButton.TabIndex = 1;
@@ -172,7 +173,7 @@ namespace BrickBreaker
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(443, 432);
+            this.exitButton.Location = new System.Drawing.Point(562, 432);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(194, 77);
             this.exitButton.TabIndex = 2;
@@ -1116,11 +1117,26 @@ namespace BrickBreaker
             this.label109.Size = new System.Drawing.Size(38, 17);
             this.label109.TabIndex = 126;
             // 
+            // highscoreButton
+            // 
+            this.highscoreButton.BackColor = System.Drawing.Color.White;
+            this.highscoreButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.highscoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.highscoreButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highscoreButton.Location = new System.Drawing.Point(332, 432);
+            this.highscoreButton.Name = "highscoreButton";
+            this.highscoreButton.Size = new System.Drawing.Size(194, 77);
+            this.highscoreButton.TabIndex = 127;
+            this.highscoreButton.Text = "Highscore";
+            this.highscoreButton.UseVisualStyleBackColor = false;
+            this.highscoreButton.Click += new System.EventHandler(this.highscoreButton_Click);
+            // 
             // GameOverScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.highscoreButton);
             this.Controls.Add(this.label109);
             this.Controls.Add(this.label120);
             this.Controls.Add(this.label118);
@@ -1368,5 +1384,6 @@ namespace BrickBreaker
         private System.Windows.Forms.Label label118;
         private System.Windows.Forms.Label label120;
         private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Button highscoreButton;
     }
 }
