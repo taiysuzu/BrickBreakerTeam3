@@ -72,6 +72,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Scores.cs" />
     <Compile Include="Screens\HowtoPlayScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,9 +195,6 @@
     <None Include="Resources\Brick3real.png" />
     <None Include="Resources\Brick2real.png" />
     <None Include="Resources\Brick1.png" />
-    <Content Include="Resources\highscores.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\howtoplay.jpg" />
     <Content Include="Resources\LebronJames.png" />
     <Content Include="Resources\level3.xml">

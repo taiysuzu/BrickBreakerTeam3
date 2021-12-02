@@ -82,6 +82,7 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
+
         }
 
         public void OnStart()
@@ -182,9 +183,6 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
-                case Keys.Space:
-                    spacebarDown = false;
-                    break;
                 default:
                     break;
             }
@@ -250,7 +248,15 @@ namespace BrickBreaker
             foreach (Ball b in balls)
             {
                 // Move ball
-                b.Move();
+                if(spacebarDown == true)
+                {
+                    b.Move();
+                }
+
+                if (spacebarDown == false)
+                {
+                    ball.x = paddle.x + paddleWidth / 2 - ballSize / 2;
+                }
 
                 // Check for collision with top and side walls
                 b.WallCollision(this);
@@ -259,6 +265,9 @@ namespace BrickBreaker
                 if (b.BottomCollision(this))
                 {
                     lives--;
+
+                    spacebarDown = false;
+                    RemoveBall(b);
 
                     if (lives == 0)
                     {
@@ -344,7 +353,16 @@ namespace BrickBreaker
 
             form.Controls.Add(gos);
             form.Controls.Remove(this);
+
+            Form1.highscoreList.Add(new Scores(score+""));
         }
+
+        public void ResetBall()
+        {
+            ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+            ball.y = (this.Height - paddle.height) - 85;
+        }
+
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -526,5 +544,6 @@ namespace BrickBreaker
 
             powerUps.Remove(p);
         }
+
     }
 }
