@@ -72,10 +72,10 @@ namespace BrickBreaker
         int ballX, ballY, xSpeed, ySpeed, ballSize;
 
         //powerup counters
-        int starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
+        int starCounter, superMushCounter, miniMushCounter = 0;
 
         //powerup activated or not
-        bool powerActive, starActive, cherryActive, superMushActive, miniMushActive = false;
+        bool powerActive, starActive, superMushActive, miniMushActive = false;
         #endregion
 
         public GameScreen()
@@ -204,9 +204,6 @@ namespace BrickBreaker
                         starActive = false;
                     }
                 }
-                else if (cherryActive == true)
-                {
-                }
                 else if (superMushActive == true)
                 {
                     superMushCounter++;
@@ -225,7 +222,7 @@ namespace BrickBreaker
                         miniMushActive = false;
                     }
                 }
-                else if (starActive && cherryActive && superMushActive && miniMushActive == false)
+                else if (starActive && superMushActive && miniMushActive == false)
                 {
                     powerActive = false;
                 }
@@ -268,7 +265,7 @@ namespace BrickBreaker
                 {
                     lives--;
 
-                    spacebarDown = false;
+                    
                     RemoveBall(b);
 
                     if (lives == 0)
@@ -465,6 +462,7 @@ namespace BrickBreaker
             if (balls.Count == 1)
             {
                 ResetBall();
+                spacebarDown = false;
                 //// Moves the ball back to origin
                 //b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
                 //b.y = (this.Height - paddle.height) - 85;
@@ -503,7 +501,7 @@ namespace BrickBreaker
 
         public void DoubleCherry()
         {
-
+            AddBall();
         }
 
         public void SuperMushroom()
