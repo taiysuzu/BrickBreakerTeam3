@@ -405,6 +405,7 @@ namespace BrickBreaker
             }
         }
 
+        #region Ball
         public void AddBall()
         {
             ball = new Ball(balls[0].x, balls[0].y, balls[0].xSpeed * -1, balls[0].ySpeed, ballSize);
@@ -436,6 +437,7 @@ namespace BrickBreaker
             balls[0].xSpeed = 5;
             balls[0].ySpeed = 5;
         }
+        #endregion
 
         #region PowerUps
         public void SpawnPowerUp(int x, int y)
