@@ -40,25 +40,22 @@ namespace BrickBreaker
         public static List<Ball> balls = new List<Ball>();
 
         //image arrays
-        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1Up_Mushroom, BrickBreaker.Properties.Resources.Super_Star, BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
-        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, BrickBreaker.Properties.Resources.Brick_5hp };
+        public static Image[] powerUpImages = { BrickBreaker.Properties.Resources._1Up_Mushroom, BrickBreaker.Properties.Resources.Super_Star, 
+            BrickBreaker.Properties.Resources.Double_Cherry, BrickBreaker.Properties.Resources.Super_Mushroom, BrickBreaker.Properties.Resources.Mini_Mushroom };
+        public static Image[] brickImages = { BrickBreaker.Properties.Resources.Brick_Question, BrickBreaker.Properties.Resources.Brick_1hp, 
+            BrickBreaker.Properties.Resources.Brick_2hp, BrickBreaker.Properties.Resources.Brick_3hp, BrickBreaker.Properties.Resources.Brick_4hp, 
+            BrickBreaker.Properties.Resources.Brick_5hp };
         public static Image rainbow = BrickBreaker.Properties.Resources.rainbow_effect2;
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush textBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
-        SolidBrush blockBrush2 = new SolidBrush(Color.Yellow);
-        SolidBrush blockBrush3 = new SolidBrush(Color.Green);
-        SolidBrush blockBrush4 = new SolidBrush(Color.Blue);
 
-        // Sound effects
-        SoundPlayer miniMushSound = new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect);
-        SoundPlayer superMushSound = new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect);
-        SoundPlayer superStarSound = new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound);
-        SoundPlayer doubleCherrySound = new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect);
-        SoundPlayer oneUpMushSound = new SoundPlayer(Properties.Resources._1_UP_Mushroom_Sound_Effect);
+        // Sound effect arrays
+        public static SoundPlayer[] powerUpSounds = { new SoundPlayer(Properties.Resources._1_UP_Mushroom_Sound_Effect), 
+            new SoundPlayer(Properties.Resources.Super_Mario_Star_Sound), new SoundPlayer(Properties.Resources.PowerUp_Sound_Effect), 
+            new SoundPlayer(Properties.Resources._Mushroom_Sound_Effect), new SoundPlayer(Properties.Resources._Mini_Mushroom_Sound_Effect) };
 
         //font for text
         Font textFont = new Font("Arial", 16);
@@ -72,17 +69,16 @@ namespace BrickBreaker
         int ballX, ballY, xSpeed, ySpeed, ballSize;
 
         //powerup counters
-        int starCounter, cherryCounter, superMushCounter, miniMushCounter = 0;
+        int starCounter, superMushCounter, miniMushCounter = 0;
 
         //powerup activated or not
-        bool powerActive, starActive, cherryActive, superMushActive, miniMushActive = false;
+        bool powerActive, starActive, superMushActive, miniMushActive = false;
         #endregion
 
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
-
         }
 
         public void OnStart()
@@ -114,16 +110,15 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             balls.Add(ball);
 
-            #region Temporary code that loads levels.
+            #region Loads levels
 
-            //TODO: load level screen
-            //clears screen and loads level 1
+            //clears screen, checks which level to load and loads it
 
             blocks.Clear();
 
             int newX, newY, newHp, newColour, newType;
 
-            XmlReader reader = XmlReader.Create("Resources/level1.xml");
+            XmlReader reader = XmlReader.Create($"Resources/level{LevelSelect.counter}.xml");
 
             while (reader.Read())
             {
@@ -155,6 +150,21 @@ namespace BrickBreaker
             gameTimer.Enabled = true;
         }
 
+        public void OnEnd()
+        {
+            // Goes to the game over screen
+            Form form = this.FindForm();
+
+            GameOverScreen gos = new GameOverScreen();
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
+
+            form.Controls.Add(gos);
+            form.Controls.Remove(this);
+
+            Form1.highscoreList.Add(new Scores(score + ""));
+        }
+
+        #region Keys
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //player 1 button presses
@@ -189,6 +199,7 @@ namespace BrickBreaker
                     break;
             }
         }
+        #endregion
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -199,13 +210,11 @@ namespace BrickBreaker
                 {
                     starCounter++;
                     ball.StarCollision(this);
-                    if (starCounter == 1200)
+                    if (starCounter == 2000)
                     {
+                        powerUpSounds[2].Stop();
                         starActive = false;
                     }
-                }
-                else if (cherryActive == true)
-                {
                 }
                 else if (superMushActive == true)
                 {
@@ -225,7 +234,7 @@ namespace BrickBreaker
                         miniMushActive = false;
                     }
                 }
-                else if (starActive && cherryActive && superMushActive && miniMushActive == false)
+                else if (starActive && superMushActive && miniMushActive == false)
                 {
                     powerActive = false;
                 }
@@ -239,12 +248,6 @@ namespace BrickBreaker
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
-            }
-
-            //move powerups
-            foreach (PowerUp p in powerUps)
-            {
-                p.Move();
             }
 
             foreach (Ball b in balls)
@@ -267,10 +270,7 @@ namespace BrickBreaker
                 if (b.BottomCollision(this))
                 {
                     lives--;
-
-                    spacebarDown = false;
-                    RemoveBall(b);
-
+                    
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false;
@@ -324,6 +324,12 @@ namespace BrickBreaker
                 }
             }
 
+            //move powerups
+            foreach (PowerUp p in powerUps)
+            {
+                p.Move();
+            }
+
             //check powerup collision with bottom
             foreach (PowerUp p in powerUps)
             {
@@ -345,69 +351,16 @@ namespace BrickBreaker
             Refresh();
         }
 
-        public void OnEnd()
-        {
-            // Goes to the game over screen
-            Form form = this.FindForm();
-
-            GameOverScreen gos = new GameOverScreen();
-            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
-
-            form.Controls.Add(gos);
-            form.Controls.Remove(this);
-
-            Form1.highscoreList.Add(new Scores(score+""));
-        }
-
-        public void ResetBall()
-        {
-            balls[0].x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-            balls[0].y = (this.Height - paddle.height) - 85;
-            balls[0].xSpeed = 5;
-            balls[0].ySpeed = 5;
-        }
-
-
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            foreach(Block b in blocks)
+            foreach (Block b in blocks)
             {
                 e.Graphics.DrawImage(brickImages[b.colour], b.x, b.y, b.width, b.height);
             }
-
-            // Draws blocks
-
-            //foreach (Block b in blocks)
-            //{
-            //    if (b.type == 0)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 1)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[0], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 2)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[1], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 3)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[2], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 4)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[3], b.x, b.y, b.width, b.height);
-            //    }
-            //    else if (b.hp == 5)
-            //    {
-            //        e.Graphics.DrawImage(brickImages[4], b.x, b.y, b.width, b.height);
-            //    }
-            //}
 
             //draws powerups
             foreach (PowerUp p in powerUps)
@@ -450,10 +403,11 @@ namespace BrickBreaker
             //Draw star rainbow effect
             if (starActive == true)
             {
-                e.Graphics.DrawImage(rainbow, 0, 658, 1068, 20);
+                e.Graphics.DrawImage(rainbow, 0, 535, 1068, 20);
             }
         }
 
+        #region Ball
         public void AddBall()
         {
             ball = new Ball(balls[0].x, balls[0].y, balls[0].xSpeed * -1, balls[0].ySpeed, ballSize);
@@ -465,6 +419,7 @@ namespace BrickBreaker
             if (balls.Count == 1)
             {
                 ResetBall();
+                spacebarDown = false;
                 //// Moves the ball back to origin
                 //b.x = ((paddle.x - (b.size / 2)) + (paddle.width / 2));
                 //b.y = (this.Height - paddle.height) - 85;
@@ -477,6 +432,16 @@ namespace BrickBreaker
             }
         }
 
+        public void ResetBall()
+        {
+            balls[0].x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+            balls[0].y = (this.Height - paddle.height) - 85;
+            balls[0].xSpeed = 5;
+            balls[0].ySpeed = 5;
+        }
+        #endregion
+
+        #region PowerUps
         public void SpawnPowerUp(int x, int y)
         {
             int size = 40;
@@ -488,7 +453,7 @@ namespace BrickBreaker
 
             powerUps.Add(p);
         }
-
+        
         public void _1UpMushroom()
         {
             lives = lives + 1;
@@ -503,7 +468,7 @@ namespace BrickBreaker
 
         public void DoubleCherry()
         {
-
+            AddBall();
         }
 
         public void SuperMushroom()
@@ -528,27 +493,32 @@ namespace BrickBreaker
         {
             if (p.type == 1)
             {
+                powerUpSounds[0].Play();
                 _1UpMushroom();
             }
             else if (p.type == 2)
             {
+                powerUpSounds[1].Play();
                 SuperStar();
             }
             else if (p.type == 3)
             {
+                powerUpSounds[2].Play();
                 DoubleCherry();
             }
             else if (p.type == 4)
             {
+                powerUpSounds[3].Play();
                 SuperMushroom();
             }
             else if (p.type == 5)
             {
+                powerUpSounds[4].Play();
                 MiniMushroom();
             }
 
             powerUps.Remove(p);
         }
-
+        #endregion
     }
 }

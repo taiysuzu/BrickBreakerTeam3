@@ -18,8 +18,6 @@ namespace BrickBreaker
         public int colour;
         public int type;
 
-        Image image;
-
         //block types as follows: 0 - powerup block, 1-5 - 1-5 hp
         //block colours/images are the same order
 

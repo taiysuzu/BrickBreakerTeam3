@@ -179,9 +179,10 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;Score&gt;
+        ///&lt;Highscores&gt;
         ///  
-        ///&lt;/Score&gt;
+        ///&lt;/Highscores&gt;
+        ///
         ///.
         /// </summary>
         internal static string highscores {
@@ -207,55 +208,6 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("LebronBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap LebronJames {
-            get {
-                object obj = ResourceManager.GetObject("LebronJames", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;level&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;25&lt;/x&gt;
-        ///    &lt;y&gt;162&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;colour&gt;4&lt;/colour&gt;
-        ///    &lt;type&gt;0&lt;/type&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;56&lt;/x&gt;
-        ///    &lt;y&gt;153&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;colour&gt;4&lt;/colour&gt;
-        ///    &lt;type&gt;0&lt;/type&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;87&lt;/x&gt;
-        ///    &lt;y&gt;144&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;colour&gt;4&lt;/colour&gt;
-        ///    &lt;type&gt;0&lt;/type&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;118&lt;/x&gt;
-        ///    &lt;y&gt;135&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;colour&gt;4&lt;/colour&gt;
-        ///    &lt;type&gt;0&lt;/type&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;br [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string level1 {
-            get {
-                return ResourceManager.GetString("level1", resourceCulture);
             }
         }
         
@@ -292,9 +244,9 @@ namespace BrickBreaker.Properties {
         ///  &lt;/brick&gt;
         ///  &lt;br [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string level2 {
+        internal static string level1 {
             get {
-                return ResourceManager.GetString("level2", resourceCulture);
+                return ResourceManager.GetString("level1", resourceCulture);
             }
         }
         
@@ -331,6 +283,45 @@ namespace BrickBreaker.Properties {
         ///  &lt;/brick&gt;
         ///  &lt;brick&gt; [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string level2 {
+            get {
+                return ResourceManager.GetString("level2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;level&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;25&lt;/x&gt;
+        ///    &lt;y&gt;162&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///    &lt;colour&gt;4&lt;/colour&gt;
+        ///    &lt;type&gt;0&lt;/type&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;56&lt;/x&gt;
+        ///    &lt;y&gt;153&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///    &lt;colour&gt;4&lt;/colour&gt;
+        ///    &lt;type&gt;0&lt;/type&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;87&lt;/x&gt;
+        ///    &lt;y&gt;144&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///    &lt;colour&gt;4&lt;/colour&gt;
+        ///    &lt;type&gt;0&lt;/type&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;118&lt;/x&gt;
+        ///    &lt;y&gt;135&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///    &lt;colour&gt;4&lt;/colour&gt;
+        ///    &lt;type&gt;0&lt;/type&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;br [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string level3 {
             get {
                 return ResourceManager.GetString("level3", resourceCulture);
@@ -360,16 +351,6 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MarioStand {
-            get {
-                object obj = ResourceManager.GetObject("MarioStand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Mini_Mushroom {
             get {
                 object obj = ResourceManager.GetObject("Mini_Mushroom", resourceCulture);
@@ -392,16 +373,6 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap rainbow_effect2 {
             get {
                 object obj = ResourceManager.GetObject("rainbow_effect2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap realbubble {
-            get {
-                object obj = ResourceManager.GetObject("realbubble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

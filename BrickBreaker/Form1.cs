@@ -52,7 +52,7 @@ namespace BrickBreaker
         {
             string highscore;
 
-            XmlReader reader = XmlReader.Create("resources/highscores.xml");
+            XmlReader reader = XmlReader.Create("Resources/highscores.xml");
 
             while(reader.Read())
             {

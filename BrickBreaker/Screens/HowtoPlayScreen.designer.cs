@@ -29,33 +29,24 @@ namespace BrickBreaker
         /// </summary>
         private void InitializeComponent()
         {
-            this.howtolabel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.returnButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // howtolabel
+            // returnButton
             // 
-            this.howtolabel.BackColor = System.Drawing.Color.White;
-            this.howtolabel.Font = new System.Drawing.Font("Super Mario 256", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.howtolabel.ForeColor = System.Drawing.Color.Black;
-            this.howtolabel.Location = new System.Drawing.Point(61, 50);
-            this.howtolabel.Name = "howtolabel";
-            this.howtolabel.Size = new System.Drawing.Size(287, 153);
-            this.howtolabel.TabIndex = 0;
-            this.howtolabel.Text = "Arrow Keys (←→) To Move!\r\n\r\nDont Let the Ball Touch the Ground!\r\n\r\nYou Have 3 Liv" +
-    "es!\r\n";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.realbubble;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(333, 213);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.returnButton.BackColor = System.Drawing.Color.White;
+            this.returnButton.FlatAppearance.BorderSize = 0;
+            this.returnButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.returnButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.returnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.returnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnButton.Location = new System.Drawing.Point(3, 496);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(106, 43);
+            this.returnButton.TabIndex = 6;
+            this.returnButton.Text = "<- Back";
+            this.returnButton.UseVisualStyleBackColor = false;
+            this.returnButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // HowtoPlayScreen
             // 
@@ -63,18 +54,15 @@ namespace BrickBreaker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.howtoplay;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.howtolabel);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.returnButton);
             this.Name = "HowtoPlayScreen";
             this.Size = new System.Drawing.Size(854, 542);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label howtolabel;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button returnButton;
     }
 }

@@ -26,13 +26,24 @@ namespace BrickBreaker
         {
             // Goes to the level select screen
             
-            GameScreen ls = new GameScreen();
+            LevelSelect ls = new LevelSelect();
             Form form = this.FindForm();
 
             form.Controls.Add(ls);
             form.Controls.Remove(this);
 
             ls.Location = new Point((form.Width - ls.Width) / 2, (form.Height - ls.Height) / 2);
+        }
+
+        private void highscoresButton_Click(object sender, EventArgs e)
+        {
+            BrickBreaker.Screens.HighscoreScreen hs = new BrickBreaker.Screens.HighscoreScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(hs);
+            form.Controls.Remove(this);
+
+            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
         }
 
         private void instructionsButton_Click(object sender, EventArgs e)
@@ -70,6 +81,15 @@ namespace BrickBreaker
         private void exitButton_MouseLeave(object sender, EventArgs e)
         {
             exitButton.ForeColor = Color.White;
+        }
+        private void highscoresButton_MouseLeave(object sender, EventArgs e)
+        {
+            highscoresButton.ForeColor = Color.White;
+        }
+
+        private void highscoresButton_MouseEnter(object sender, EventArgs e)
+        {
+            highscoresButton.ForeColor = Color.Blue;
         }
     }
 }

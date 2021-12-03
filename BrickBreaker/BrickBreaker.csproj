@@ -182,10 +182,13 @@
     <None Include="Resources\LebronBackground.png" />
     <None Include="Resources\MarioBackground.png" />
     <None Include="Resources\MainBackground.png" />
+    <None Include="Resources\howtoBackground2.png" />
+    <Content Include="Resources\highscores.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\MarioStand.png" />
     <None Include="Resources\New Super Mario Bros. Wii - Mini Mushroom Sound Effect.wav" />
     <None Include="Resources\RealBacground.png" />
-    <Content Include="Resources\realbubble.png" />
     <None Include="Resources\rainbow-effect2.png" />
     <None Include="Resources\Super Star.png" />
     <None Include="Resources\Mini Mushroom.png" />
@@ -197,13 +200,13 @@
     <None Include="Resources\Brick1.png" />
     <Content Include="Resources\howtoplay.jpg" />
     <Content Include="Resources\LebronJames.png" />
-    <Content Include="Resources\level3.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\level2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\level3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Super Mushroom.png" />
