@@ -30,6 +30,7 @@ namespace BrickBreaker.Screens
         private void InitializeComponent()
         {
             this.highscoreLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // highscoreLabel
@@ -41,11 +42,28 @@ namespace BrickBreaker.Screens
             this.highscoreLabel.Size = new System.Drawing.Size(333, 291);
             this.highscoreLabel.TabIndex = 0;
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.White;
+            this.backButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(330, 403);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(194, 77);
+            this.backButton.TabIndex = 2;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // HighscoreScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.highscoreLabel);
             this.DoubleBuffered = true;
             this.Name = "HighscoreScreen";
@@ -58,5 +76,6 @@ namespace BrickBreaker.Screens
         #endregion
 
         private System.Windows.Forms.Label highscoreLabel;
+        private System.Windows.Forms.Button backButton;
     }
 }

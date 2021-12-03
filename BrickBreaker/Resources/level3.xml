@@ -4,36 +4,36 @@
     <x>25</x>
     <y>162</y>
     <hp>1</hp>
-    <colour>4</colour>
+    <colour>0</colour>
     <type>0</type>
   </brick>
   <brick>
     <x>56</x>
     <y>153</y>
     <hp>1</hp>
-    <colour>4</colour>
-    <type>0</type>
+    <colour>1</colour>
+    <type>1</type>
   </brick>
   <brick>
     <x>87</x>
     <y>144</y>
     <hp>1</hp>
-    <colour>4</colour>
-    <type>0</type>
+    <colour>1</colour>
+    <type>1</type>
   </brick>
   <brick>
     <x>118</x>
     <y>135</y>
     <hp>1</hp>
-    <colour>4</colour>
-    <type>0</type>
+    <colour>1</colour>
+    <type>1</type>
   </brick>
   <brick>
     <x>149</x>
     <y>123</y>
     <hp>1</hp>
-    <colour>4</colour>
-    <type>0</type>
+    <colour>1</colour>
+    <type>1</type>
   </brick>
   <brick>
     <x>180</x>
@@ -46,8 +46,8 @@
     <x>211</x>
     <y>123</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>242</x>
@@ -81,8 +81,8 @@
     <x>613</x>
     <y>123</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>644</x>
@@ -123,8 +123,8 @@
     <x>799</x>
     <y>162</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>242</x>
@@ -158,8 +158,8 @@
     <x>366</x>
     <y>16</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>396</x>
@@ -193,8 +193,8 @@
     <x>520</x>
     <y>16</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>551</x>
@@ -235,8 +235,8 @@
     <x>551</x>
     <y>89</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>582</x>
@@ -277,8 +277,8 @@
     <x>397</x>
     <y>89</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>366</x>
@@ -319,8 +319,8 @@
     <x>242</x>
     <y>52</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>273</x>
@@ -368,8 +368,8 @@
     <x>458</x>
     <y>52</y>
     <hp>3</hp>
-    <colour>3</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>489</x>
