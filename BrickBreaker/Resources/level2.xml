@@ -4,8 +4,8 @@
     <x>16</x>
     <y>7</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>70</x>
@@ -32,8 +32,8 @@
     <x>238</x>
     <y>105</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>294</x>
@@ -67,8 +67,8 @@
     <x>518</x>
     <y>105</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>574</x>
@@ -95,8 +95,8 @@
     <x>745</x>
     <y>32</y>
     <hp>1</hp>
-    <colour>1</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>801</x>
@@ -123,8 +123,8 @@
     <x>182</x>
     <y>45</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>238</x>
@@ -151,8 +151,8 @@
     <x>462</x>
     <y>70</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>518</x>
@@ -179,8 +179,8 @@
     <x>689</x>
     <y>22</y>
     <hp>2</hp>
-    <colour>2</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>745</x>
@@ -214,8 +214,8 @@
     <x>350</x>
     <y>32</y>
     <hp>3</hp>
-    <colour>3</colour>
-    <type>1</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
   <brick>
     <x>406</x>
@@ -256,7 +256,7 @@
     <x>406</x>
     <y>70</y>
     <hp>1</hp>
-    <colour>4</colour>
-    <type>6</type>
+    <colour>0</colour>
+    <type>0</type>
   </brick>
 </level>

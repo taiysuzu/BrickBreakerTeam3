@@ -164,8 +164,8 @@ namespace BrickBreaker
             Form1.highscoreList.Add(new Scores(score + ""));
 
             //Form1.highscoreList.Sort();
-            
-            //if(Form1.highscoreList.Count > 5)
+
+            //if (Form1.highscoreList.Count > 5)
             //{
             //    Form1.highscoreList.RemoveAt(5);
             //}
