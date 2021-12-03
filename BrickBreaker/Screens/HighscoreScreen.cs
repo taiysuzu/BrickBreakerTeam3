@@ -20,15 +20,12 @@ namespace BrickBreaker.Screens
 
         private void HighscoreScreen_Load(object sender, EventArgs e)
         {
-            //Form1.highscoreList.Sort();
-
-            //if(Form1.highscoreList.Count > 5)
-            //{
-            //    Form1.highscoreList.RemoveAt(6);
-            //}
+           
 
 
-            foreach(Scores s in Form1.highscoreList)
+
+            
+            foreach (Scores s in Form1.highscoreList)
             {
                 highscoreLabel.Text += $"{s.highscore}\n";
             }
